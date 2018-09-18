@@ -1,12 +1,13 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="dk.analog.digitalclipcard">
+<manifest package="dk.analog.digitalclipcard"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
 
     <application
+        android:name=".base.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,9 +15,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <activity
+            android:name=".start.StartActivity"
+            android:screenOrientation="userPortrait"/>
+
+        <activity
+            android:name=".login.LoginActivity"
+            android:screenOrientation="userPortrait"/>
+
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="080f7d38b3a0056855ea9a1bcc90962c18ad8226" />
+            android:value="080f7d38b3a0056855ea9a1bcc90962c18ad8226"/>
 
     </application>
 
