@@ -8,4 +8,39 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="LoginTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:background">@drawable/splash_background</item>
+    </style>
+
+    <style name="CustomButton" parent="Base.Widget.AppCompat.Button">
+        <item name="android:textColor">@drawable/custom_button_text</item>
+        <item name="android:background">@color/colorAccent</item>
+    </style>
+
+    <style name="num_frame">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">55dp</item>
+        <item name="layout_columnWeight">1</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+    </style>
+
+    <style name="num_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@color/colorTextLight</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
 </resources>

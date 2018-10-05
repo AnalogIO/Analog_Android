@@ -1,3 +1,22 @@
 <resources>
-    <string name="app_name">Café Analog</string>
+    <string name="appName">Café Analog</string>
+    <string name="welcomeHeader">Hello &amp; welcome!</string>
+    <string name="welcomeText">This app can be used to buy coffee cards at Café Analog at ITU Copenhagen, and will help you keep tabs on our opening hours</string>
+    <string name="registerANewAccount">Register a new account</string>
+    <string name="signInToExistingAccount">Sign in to an existing account</string>
+    <string name="or">Or</string>
+    <string name="email">Email</string>
+    <string name="continueText">Continue</string>
+    <string name="noAccountYet">No account yet? Click to create one!</string>
+    <string name="createUser">Create user</string>
+    <string name="reportError">Report error</string>
+    <string name="enterYourPin">Enter your pin</string>
+    <string name="delete">Delete</string>
+    <string name="enterValidEmail">Please enter a valid email</string>
+    <string name="feedbackEmail">feedback@analogio.dk</string>
+    <string name="errorReport">Error report</string>
+    <string name="sendMail">Send mail…</string>
+    <string name="feedbackEmailBody">Device: Android (%1$s)\nVersion: %2$s (%3$d)\n__________________\n\n\n</string>
+    <string name="noEmailClientsInstalled">There are no email clients installed.</string>
+
 </resources>

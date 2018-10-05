@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="top"
+    android:orientation="horizontal"
+    tools:showIn="@layout/activity_login_email">
+
+    <ImageView
+        android:id="@+id/analogLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="72dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:src="@drawable/analog_logo"
+        tools:ignore="ContentDescription" />
+
+    <ImageButton
+        android:id="@+id/helpButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="end"
+        android:adjustViewBounds="true"
+        android:background="@color/colorTransparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/help"
+        tools:ignore="ContentDescription" />
+
+</FrameLayout>
