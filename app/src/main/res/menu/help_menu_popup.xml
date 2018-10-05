@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <item
+        android:id="@+id/createUserMenuItem"
+        android:title="@string/createUser" />
+    <item
+        android:id="@+id/reportErrorMenuItem"
+        android:title="@string/reportError" />
+
+</menu>
