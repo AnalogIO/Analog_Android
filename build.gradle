@@ -1,5 +1,6 @@
 buildscript {
     ext.androidx_version = '1.0.0'
+    ext.lifecycle_version = '2.0.0'
     ext.retrofit_version = '2.4.0'
     ext.rxandroid_version = '2.1.0'
     ext.rxkotlin_version = '2.2.0'
