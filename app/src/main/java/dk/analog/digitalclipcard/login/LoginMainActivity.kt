@@ -16,6 +16,9 @@ import kotlinx.android.synthetic.main.top_login_screen.*
 
 const val EMAIL_LOGIN = "EMAIL_LOGIN"
 
+data class Login(val email: String, val password: String, val version: String)
+data class LoginResponse(val token: String)
+
 class LoginMainActivity : BaseActivity(), CustomKeyboardListener {
 
     private var password: String = ""
