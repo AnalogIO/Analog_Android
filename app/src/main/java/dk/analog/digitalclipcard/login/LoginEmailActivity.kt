@@ -13,7 +13,6 @@ import dk.analog.digitalclipcard.utils.EmailUtils
 import dk.analog.digitalclipcard.utils.IntentUtils
 import dk.analog.digitalclipcard.utils.makeToast
 import kotlinx.android.synthetic.main.activity_login_email.*
-import kotlinx.android.synthetic.main.activity_start.*
 import kotlinx.android.synthetic.main.top_login_screen.*
 
 class LoginEmailActivity : BaseActivity() {
@@ -24,6 +23,8 @@ class LoginEmailActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        continueButton.isEnabled = emailField.text.isNotEmpty()
 
         setupListeners()
     }
@@ -52,7 +53,7 @@ class LoginEmailActivity : BaseActivity() {
             }
         }
 
-        registerButton.setOnClickListener {
+        registerUserButton.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
 
@@ -75,6 +76,7 @@ class LoginEmailActivity : BaseActivity() {
             }
         }
         popup.inflate(R.menu.help_menu_popup)
+        popup.menu.findItem(R.id.forgotPinMenuItem).isVisible = false
         popup.show()
     }
 }

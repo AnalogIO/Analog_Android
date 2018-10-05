@@ -11,5 +11,6 @@ class SplashActivity : AppCompatActivity() {
 
         // TODO: Start either StartActivity or LoginEmailActivity depending on if an e-mail is stored
         startActivity(Intent(this, StartActivity::class.java))
+        finish()
     }
 }

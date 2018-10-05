@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="XXLDark">
+    <style name="XXL">
         <item name="android:textSize">34sp</item>
         <item name="android:textColor">@color/colorTextDark</item>
     </style>
 
-    <style name="XLDark">
+    <style name="XL">
         <item name="android:textSize">22sp</item>
         <item name="android:textColor">@color/colorTextDark</item>
     </style>
 
-    <style name="LGDark">
+    <style name="LG">
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/colorTextDark</item>
     </style>
 
-    <style name="MDDark">
+    <style name="MD">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/colorTextDark</item>
     </style>
 
-    <style name="SMDark">
+    <style name="SM">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/colorTextDark</item>
     </style>
 
-    <style name="XSDark">
+    <style name="XS">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/colorTextDark</item>
     </style>

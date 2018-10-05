@@ -8,6 +8,9 @@
         android:id="@+id/createUserMenuItem"
         android:title="@string/createUser" />
     <item
+        android:id="@+id/forgotPinMenuItem"
+        android:title="@string/forgotPin" />
+    <item
         android:id="@+id/reportErrorMenuItem"
         android:title="@string/reportError" />
 

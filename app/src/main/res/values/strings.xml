@@ -9,6 +9,7 @@
     <string name="continueText">Continue</string>
     <string name="noAccountYet">No account yet? Click to create one!</string>
     <string name="createUser">Create user</string>
+    <string name="forgotPin">I forgot my PIN</string>
     <string name="reportError">Report error</string>
     <string name="enterYourPin">Enter your pin</string>
     <string name="delete">Delete</string>
@@ -18,5 +19,9 @@
     <string name="sendMail">Send mail…</string>
     <string name="feedbackEmailBody">Device: Android (%1$s)\nVersion: %2$s (%3$d)\n__________________\n\n\n</string>
     <string name="noEmailClientsInstalled">There are no email clients installed.</string>
+    <string name="forgotYourPinHeader">Forgot your PIN?</string>
+    <string name="forgotYourPinText">Please enter your email address. You will receive a mail that you will have to confirm.</string>
+    <string name="cancel">Cancel</string>
+    <string name="send">Send</string>
 
 </resources>

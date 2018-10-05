@@ -30,15 +30,18 @@
 
         <activity
             android:name=".start.StartActivity"
-            android:screenOrientation="userPortrait" />
+            android:screenOrientation="userPortrait"
+            android:theme="@style/LoginTheme" />
 
         <activity
             android:name=".login.LoginEmailActivity"
-            android:screenOrientation="userPortrait" />
+            android:screenOrientation="userPortrait"
+            android:theme="@style/LoginTheme" />
 
         <activity
             android:name=".login.LoginMainActivity"
-            android:screenOrientation="userPortrait" />
+            android:screenOrientation="userPortrait"
+            android:theme="@style/LoginTheme" />
 
         <activity
             android:name=".register.RegisterActivity"
