@@ -17,7 +17,7 @@ import java.util.*
 import java.util.concurrent.TimeUnit
 
 
-private const val URL = "https://api.hopper.dk/"
+private const val URL = ""
 
 internal var userToken: String? = null
 
