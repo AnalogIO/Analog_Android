@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.gridlayout.widget.GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grid="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:background="@color/colorAccent"
+    grid:alignmentMode="alignBounds"
+    grid:columnCount="3"
+    grid:rowCount="4"
+    grid:rowOrderPreserved="false"
+    grid:useDefaultMargins="false">
+
+    <FrameLayout
+        android:id="@+id/button1"
+        style="@style/num_frame">
+
+        <TextView
+            style="@style/num_text"
+            android:text="1" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/button2"
+        style="@style/num_frame">
+
+        <TextView
+            style="@style/num_text"
+            android:text="2" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/button3"
+        style="@style/num_frame">
+
+        <TextView
+            style="@style/num_text"
+            android:text="3" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/button4"
+        style="@style/num_frame">
+
+        <TextView
+            style="@style/num_text"
+            android:text="4" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/button5"
+        style="@style/num_frame">
+
+        <TextView
+            style="@style/num_text"
+            android:text="5" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/button6"
+        style="@style/num_frame">
+
+        <TextView
+            style="@style/num_text"
+            android:text="6" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/button7"
+        style="@style/num_frame">
+
+        <TextView
+            style="@style/num_text"
+            android:text="7" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/button8"
+        style="@style/num_frame">
+
+        <TextView
+            style="@style/num_text"
+            android:text="8" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/button9"
+        style="@style/num_frame">
+
+        <TextView
+            style="@style/num_text"
+            android:text="9" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/button10"
+        style="@style/num_frame">
+
+        <ImageView
+            style="@style/num_text"
+            android:contentDescription="@string/delete"
+            android:src="@drawable/ic_backspace_text_light_24dp" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/button11"
+        style="@style/num_frame">
+
+        <TextView
+            style="@style/num_text"
+            android:text="0" />
+
+    </FrameLayout>
+
+</androidx.gridlayout.widget.GridLayout>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:fadeScrollbars="false"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="false"
+            android:orientation="vertical">
+
+            <include layout="@layout/top_login_screen" />
+
+            <TextView
+                android:id="@+id/loginEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:textAppearance="@style/LG"
+                tools:text="my_email@itu.dk" />
+
+            <LinearLayout
+                android:id="@+id/passwordBoxesLayout"
+                android:layout_width="260dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+                <include
+                    android:id="@+id/passwordField1"
+                    layout="@layout/password_box" />
+
+                <include
+                    android:id="@+id/passwordField2"
+                    layout="@layout/password_box" />
+
+                <include
+                    android:id="@+id/passwordField3"
+                    layout="@layout/password_box" />
+
+                <include
+                    android:id="@+id/passwordField4"
+                    layout="@layout/password_box" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/loginHelpText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:lines="2"
+                android:text="@string/enterYourPin"
+                android:textAppearance="@style/MD"
+                android:textColor="@color/colorPrimaryDark" />
+
+            <TextView
+                android:id="@+id/registerUserButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:text="@string/noAccountYet"
+                android:textAppearance="@style/MD" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/numericKeyboardContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        tools:layout="@layout/numeric_keyboard" />
+
+</LinearLayout>
