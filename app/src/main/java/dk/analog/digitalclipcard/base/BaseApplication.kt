@@ -29,4 +29,5 @@ class BaseApplication : Application() {
                 .build()
         Fabric.with(this, crashlyticsKit)
     }
+
 }
