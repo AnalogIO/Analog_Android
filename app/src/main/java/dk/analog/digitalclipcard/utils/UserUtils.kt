@@ -12,6 +12,7 @@ fun Context.logOut() {
     val intent = Intent(this, LoginMainActivity::class.java)
     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
     startActivity(intent)
+    putToken("")
 }
 
 fun Context.getToken(): String {
