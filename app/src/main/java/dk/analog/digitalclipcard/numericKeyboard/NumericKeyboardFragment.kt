@@ -1,4 +1,4 @@
-package dk.analog.digitalclipcard.NumericKeyboard
+package dk.analog.digitalclipcard.numericKeyboard
 
 import android.content.Context
 import android.os.Build

@@ -9,25 +9,21 @@ import io.fabric.sdk.android.Fabric
 
 class BaseApplication : Application() {
 
-    init {
-        instance = this
-    }
-
     companion object {
-        private var instance: BaseApplication? = null
+        var instance: BaseApplication? = null
+            private set
 
-        fun applicationContext() : Context {
-            return instance!!.applicationContext
-        }
+        val context: Context
+            get() = instance!!.applicationContext
     }
 
     override fun onCreate() {
         super.onCreate()
+        instance = this
 
         val crashlyticsKit = Crashlytics.Builder()
                 .core(CrashlyticsCore.Builder().disabled(BuildConfig.DEBUG).build())
                 .build()
         Fabric.with(this, crashlyticsKit)
     }
-
 }

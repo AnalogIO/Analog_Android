@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.widget.PopupMenu
-import dk.analog.digitalclipcard.NumericKeyboard.CustomKeyboardListener
-import dk.analog.digitalclipcard.NumericKeyboard.NumericKeyboardFragment
+import dk.analog.digitalclipcard.numericKeyboard.CustomKeyboardListener
+import dk.analog.digitalclipcard.numericKeyboard.NumericKeyboardFragment
 import dk.analog.digitalclipcard.R
 import dk.analog.digitalclipcard.base.BaseActivity
 import dk.analog.digitalclipcard.register.RegisterActivity
