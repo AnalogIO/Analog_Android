@@ -19,7 +19,7 @@ object IntentUtils {
         try {
             context.startActivity(Intent.createChooser(i, context.getString(R.string.sendMail)))
         } catch (ex: ActivityNotFoundException) {
-            context.makeToast(R.string.noEmailClientsInstalled)
+            context.showToast(R.string.noEmailClientsInstalled)
         }
     }
 }

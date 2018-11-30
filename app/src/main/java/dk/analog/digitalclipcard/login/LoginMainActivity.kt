@@ -5,20 +5,30 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.widget.PopupMenu
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import dk.analog.digitalclipcard.R
+import dk.analog.digitalclipcard.backend.ApiErrorResponse
+import dk.analog.digitalclipcard.backend.ApiSuccessResponse
+import dk.analog.digitalclipcard.base.BaseActivity
 import dk.analog.digitalclipcard.numericKeyboard.CustomKeyboardListener
 import dk.analog.digitalclipcard.numericKeyboard.NumericKeyboardFragment
-import dk.analog.digitalclipcard.R
-import dk.analog.digitalclipcard.base.BaseActivity
 import dk.analog.digitalclipcard.register.RegisterActivity
 import dk.analog.digitalclipcard.utils.IntentUtils
+import dk.analog.digitalclipcard.utils.putStoredEmail
+import dk.analog.digitalclipcard.utils.putToken
+import dk.analog.digitalclipcard.utils.showToast
 import kotlinx.android.synthetic.main.activity_login_main.*
 import kotlinx.android.synthetic.main.top_login_screen.*
 
 const val EMAIL_LOGIN = "EMAIL_LOGIN"
+private const val PIN_LENGTH = 4
 
 class LoginMainActivity : BaseActivity(), CustomKeyboardListener {
 
-    private var password: String = ""
+    private var pin: String = ""
+    private var email: String = ""
+    private var loginViewModel: LoginViewModel? = null
 
     override fun getLayoutResourceId(): Int {
         return R.layout.activity_login_main
@@ -29,9 +39,29 @@ class LoginMainActivity : BaseActivity(), CustomKeyboardListener {
 
         val email = intent.getStringExtra(EMAIL_LOGIN)
         loginEmail.text = email
+        this.email = email
         insertNumericKeyboard()
-        updatePasswordBoxes(password)
+        updatePasswordBoxes(pin)
         setupListeners()
+
+        loginViewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
+        observeViewModel(loginViewModel!!)
+    }
+
+    private fun observeViewModel(loginViewModel: LoginViewModel) {
+        loginViewModel.getTokenLiveData().observe(this, Observer { response ->
+            when (response) {
+                is ApiSuccessResponse -> {
+                    val token = response.body.token
+                    putToken(token)
+                    putStoredEmail(email)
+                    // TODO: Login here
+                }
+                is ApiErrorResponse -> {
+                    showToast(response.errorMessage)
+                }
+            }
+        })
     }
 
     private fun insertNumericKeyboard() {
@@ -78,11 +108,11 @@ class LoginMainActivity : BaseActivity(), CustomKeyboardListener {
 
     override fun onCKeyEvent(key: Int) {
         if (key in 0..9) {
-            password += key
-            updatePasswordBoxes(password)
-        } else if (key == NumericKeyboardFragment.CASE_KEY_DEL && password.isNotEmpty()) {
-            password = password.substring(0, password.length - 1)
-            updatePasswordBoxes(password)
+            pin += key
+            updatePasswordBoxes(pin)
+        } else if (key == NumericKeyboardFragment.CASE_KEY_DEL && pin.isNotEmpty()) {
+            pin = pin.substring(0, pin.length - 1)
+            updatePasswordBoxes(pin)
         }
     }
 
@@ -99,6 +129,9 @@ class LoginMainActivity : BaseActivity(), CustomKeyboardListener {
             } else {
                 pws[i].text = ""
             }
+        }
+        if (pin.length == PIN_LENGTH) {
+            loginViewModel?.login(email, pin)
         }
     }
 }

@@ -9,9 +9,9 @@ import androidx.appcompat.widget.PopupMenu
 import dk.analog.digitalclipcard.R
 import dk.analog.digitalclipcard.base.BaseActivity
 import dk.analog.digitalclipcard.register.RegisterActivity
-import dk.analog.digitalclipcard.utils.EmailUtils
+import dk.analog.digitalclipcard.utils.StringUtils
 import dk.analog.digitalclipcard.utils.IntentUtils
-import dk.analog.digitalclipcard.utils.makeToast
+import dk.analog.digitalclipcard.utils.showToast
 import kotlinx.android.synthetic.main.activity_login_email.*
 import kotlinx.android.synthetic.main.top_login_screen.*
 
@@ -44,12 +44,12 @@ class LoginEmailActivity : BaseActivity() {
 
         continueButton.setOnClickListener {
             val email = emailField.text.toString()
-            if (EmailUtils.isValidEmail(email)) {
+            if (StringUtils.isValidEmail(email)) {
                 val intent = Intent(this, LoginMainActivity::class.java)
                 intent.putExtra(EMAIL_LOGIN, email)
                 startActivity(intent)
             } else {
-                makeToast(R.string.enterValidEmail)
+                showToast(R.string.enterValidEmail)
             }
         }
 

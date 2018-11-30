@@ -5,8 +5,8 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dk.analog.digitalclipcard.BuildConfig
 import dk.analog.digitalclipcard.base.BaseApplication
-import dk.analog.digitalclipcard.utils.UserUtils
-import dk.analog.digitalclipcard.utils.UserUtils.getToken
+import dk.analog.digitalclipcard.utils.getToken
+import dk.analog.digitalclipcard.utils.logOut
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -16,7 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
 import java.util.concurrent.TimeUnit
 
-private const val URL = ""
+private const val URL = "https://analogio.dk/beta/clippy/api/v1"
 
 internal var userToken: String? = null
 
@@ -27,7 +27,7 @@ private val errorHandlerInterceptor = Interceptor { chain ->
     val response = chain.proceed(request)
 
     if (response.code() == 401) {
-        UserUtils.logOut(BaseApplication.context)
+        BaseApplication.context.logOut()
     }
     response
 }
@@ -43,7 +43,7 @@ private fun authInterceptor(token: String): Interceptor {
 }
 
 fun getBackendServiceInstance(context: Context): BackendService {
-    val token = getToken(context)
+    val token = context.getToken()
     if (instance == null || token != userToken) {
         userToken = token
         val retrofit = getDefaultRetrofitInstance(token, getGson())

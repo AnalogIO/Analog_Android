@@ -2,11 +2,10 @@ package dk.analog.digitalclipcard.login
 
 import android.content.Context
 import android.os.Bundle
-import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import dk.analog.digitalclipcard.R
-import dk.analog.digitalclipcard.utils.EmailUtils
-import dk.analog.digitalclipcard.utils.makeToast
+import dk.analog.digitalclipcard.utils.StringUtils
+import dk.analog.digitalclipcard.utils.showToast
 import kotlinx.android.synthetic.main.dialog_forgot_pin.*
 
 class ForgotPinDialog @JvmOverloads constructor(context: Context, themeResId: Int = 0) :
@@ -29,11 +28,11 @@ class ForgotPinDialog @JvmOverloads constructor(context: Context, themeResId: In
         }
         sendButton.setOnClickListener {
             val email = emailField.text.toString()
-            if (EmailUtils.isValidEmail(email)) {
+            if (StringUtils.isValidEmail(email)) {
                 // TODO: Send forgot password
                 dismiss()
             } else {
-                context.makeToast(R.string.enterValidEmail)
+                context.showToast(R.string.enterValidEmail)
             }
         }
     }

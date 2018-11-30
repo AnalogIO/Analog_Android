@@ -1,6 +1,8 @@
 package dk.analog.digitalclipcard.preferences
 
+import android.content.Context
 import android.content.SharedPreferences
+import android.preference.PreferenceManager
 import com.google.gson.GsonBuilder
 
 fun <T> SharedPreferences.liveData(key: String, defValue: T): SharedPreferenceLiveData<T> {
@@ -23,3 +25,6 @@ fun <T> SharedPreferences.putValue(key: String, value: T) {
         }
     }.apply()
 }
+
+val Context.preferences: SharedPreferences
+    get() = PreferenceManager.getDefaultSharedPreferences(this)
