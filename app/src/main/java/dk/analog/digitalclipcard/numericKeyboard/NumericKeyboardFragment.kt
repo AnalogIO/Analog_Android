@@ -53,6 +53,7 @@ class NumericKeyboardFragment : Fragment() {
             if (Build.VERSION.SDK_INT >= 26) {
                 vb.vibrate(VibrationEffect.createOneShot(18, VibrationEffect.DEFAULT_AMPLITUDE))
             } else {
+                @Suppress("DEPRECATION")
                 vb.vibrate(18)
             }
 

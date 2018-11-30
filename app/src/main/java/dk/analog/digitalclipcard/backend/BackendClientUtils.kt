@@ -16,7 +16,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
 import java.util.concurrent.TimeUnit
 
-
 private const val URL = ""
 
 internal var userToken: String? = null
@@ -28,9 +27,19 @@ private val errorHandlerInterceptor = Interceptor { chain ->
     val response = chain.proceed(request)
 
     if (response.code() == 401) {
-        UserUtils.logOut(BaseApplication.applicationContext())
+        UserUtils.logOut(BaseApplication.context)
     }
     response
+}
+
+private fun authInterceptor(token: String): Interceptor {
+    return Interceptor { chain ->
+        val request = chain.request().newBuilder()
+                .header("Authorization", token)
+                .build()
+
+        chain.proceed(request)
+    }
 }
 
 fun getBackendServiceInstance(context: Context): BackendService {
@@ -43,11 +52,11 @@ fun getBackendServiceInstance(context: Context): BackendService {
     return instance!!
 }
 
-internal fun getDefaultRetrofitInstance(token: String?, gson: Gson): Retrofit {
+private fun getDefaultRetrofitInstance(token: String, gson: Gson): Retrofit {
     return getDefaultRetrofitBuilder(gson, getDefaultClient(token)).build()
 }
 
-internal fun getDefaultRetrofitBuilder(gson: Gson, client: OkHttpClient): Retrofit.Builder {
+private fun getDefaultRetrofitBuilder(gson: Gson, client: OkHttpClient): Retrofit.Builder {
     return Retrofit.Builder()
             .baseUrl(URL)
             .client(client)
@@ -55,24 +64,25 @@ internal fun getDefaultRetrofitBuilder(gson: Gson, client: OkHttpClient): Retrof
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
 }
 
-internal fun getGson(): Gson {
+private fun getGson(): Gson {
     return GsonBuilder()
             .registerTypeAdapter(Date::class.java, GsonUTCDateAdapter(DATE_FORMAT_BACKEND))
             .create()
 }
 
-internal fun getDefaultClient(token: String?): OkHttpClient {
+private fun getDefaultClient(token: String): OkHttpClient {
     return getDefaultClientBuilder(token)
             .addInterceptor(errorHandlerInterceptor)
             .build()
 }
 
-internal fun getDefaultClientBuilder(token: String?): OkHttpClient.Builder {
+private fun getDefaultClientBuilder(token: String): OkHttpClient.Builder {
     val builder = OkHttpClient.Builder()
             .connectTimeout(30, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)
             .writeTimeout(30, TimeUnit.SECONDS)
 
+    builder.addInterceptor(authInterceptor(token))
     val loggingInterceptor = HttpLoggingInterceptor()
     if (BuildConfig.DEBUG) {
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
@@ -80,17 +90,6 @@ internal fun getDefaultClientBuilder(token: String?): OkHttpClient.Builder {
         loggingInterceptor.level = HttpLoggingInterceptor.Level.NONE
     }
     builder.addInterceptor(loggingInterceptor)
-
-    if (token != null && token.isNotEmpty()) {
-        builder.authenticator { _, response ->
-            if (response.request().header("Authorization") != null) {
-                return@authenticator null // Give up, we've already attempted to authenticate.
-            }
-            response.request().newBuilder()
-                    .header("Authorization", token)
-                    .build()
-        }
-    }
 
     return builder
 }

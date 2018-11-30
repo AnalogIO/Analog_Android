@@ -13,7 +13,7 @@ object UserUtils {
         context.startActivity(intent)
     }
 
-    fun getToken(context: Context): String? {
-        return PreferenceManager.getDefaultSharedPreferences(context).getString(USER_TOKEN, "")
+    fun getToken(context: Context): String {
+        return PreferenceManager.getDefaultSharedPreferences(context).getString(USER_TOKEN, "")!!
     }
 }
