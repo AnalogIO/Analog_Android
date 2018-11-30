@@ -5,8 +5,8 @@
     android:orientation="vertical">
 
     <item
-        android:id="@+id/createUserMenuItem"
-        android:title="@string/createUser" />
+        android:id="@+id/changeUserMenuItem"
+        android:title="@string/changeUser" />
     <item
         android:id="@+id/forgotPinMenuItem"
         android:title="@string/forgotPin" />

@@ -75,14 +75,17 @@ class LoginMainActivity : BaseActivity(), CustomKeyboardListener {
         registerUserButton.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
+        loginEmail.setOnClickListener {
+            // TODO: Popup for change user
+        }
     }
 
     private fun showPopup(v: View) {
         val popup = PopupMenu(this, v)
         popup.setOnMenuItemClickListener { item ->
             when (item.itemId) {
-                R.id.createUserMenuItem -> {
-                    startActivity(Intent(this, RegisterActivity::class.java))
+                R.id.changeUserMenuItem -> {
+                    // TODO: Popup for change user
                     true
                 }
                 R.id.forgotPinMenuItem -> {

@@ -8,7 +8,7 @@
     <string name="email">Email</string>
     <string name="continueText">Continue</string>
     <string name="noAccountYet">No account yet? Click to create one!</string>
-    <string name="createUser">Create user</string>
+    <string name="changeUser">Change user</string>
     <string name="forgotPin">I forgot my PIN</string>
     <string name="reportError">Report error</string>
     <string name="enterYourPin">Enter your pin</string>
