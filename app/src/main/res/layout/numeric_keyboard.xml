@@ -108,7 +108,8 @@
         <ImageView
             style="@style/num_text"
             android:contentDescription="@string/delete"
-            android:src="@drawable/ic_backspace_text_light_24dp" />
+            android:src="@drawable/ic_backspace_text_light_24dp"
+            android:tint="@color/colorPrimary" />
 
     </FrameLayout>
 

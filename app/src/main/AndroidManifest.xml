@@ -47,9 +47,16 @@
             android:name=".register.RegisterActivity"
             android:screenOrientation="userPortrait" />
 
+        <activity
+            android:name=".tickets.TicketsActivity"
+            android:screenOrientation="userPortrait" />
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="080f7d38b3a0056855ea9a1bcc90962c18ad8226" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
     </application>
 
