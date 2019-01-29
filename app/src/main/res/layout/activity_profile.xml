@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:cardView="http://schemas.android.com/apk/res-auto">
+
+
+
+    <TextView
+        android:id="@+id/profileLevelHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textAppearance="@style/XS"
+        android:textColor="@color/colorAccent"
+        android:text="@string/level"
+        android:textSize="12.5sp"
+        />
+
+    <FrameLayout
+        android:id="@+id/profileLevel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profileLevelHeader">
+        <ProgressBar
+            android:id="@+id/profileProgressBar"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_gravity="center"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/colorAccent"
+            android:textAppearance="@style/XS"
+            tools:text="5"
+            android:textSize="15sp"/>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/profileName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profileLevel"
+        android:textAppearance="@style/XS"
+        android:gravity="center"
+        tools:text="Agnete Ilsøe"
+        android:textSize="9sp"/>
+    <TextView
+        android:id="@+id/profileId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profileName"
+        android:textAppearance="@style/XS"
+        android:gravity="center"
+        android:textSize="6sp"
+        tools:text="ID: 284" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorAccent"
+        android:layout_below="@id/profileId"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/profileInfo"
+        android:layout_width="158dp"
+        android:layout_height="51.5dp"
+        android:layout_marginTop="10dp"
+        cardView:cardCornerRadius="5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/profileId"
+        cardView:cardBackgroundColor="@color/colorAccent"
+        cardView:cardElevation="2dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/profileAt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/profileAt"
+                android:textAppearance="@style/XS"
+                android:textSize="12sp"/>
+            <TextView
+                android:id="@+id/profileEmail"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/XS"
+                android:textSize="7sp"
+                android:layout_toEndOf="@id/profileAt"
+                tools:text="agil@itu.dk"
+                />
+
+            <TextView
+                android:id="@+id/profileBrackets"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/XS"
+                android:layout_below="@id/profileAt"
+                android:text="@string/brackets"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/XS"
+                android:textSize="7sp"
+                android:layout_toEndOf="@id/profileBrackets"
+                android:layout_alignBottom="@id/profileBrackets"
+                tools:text="K-DDIT"
+                />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="158dp"
+        android:layout_height="78.5dp"
+
+        cardView:cardCornerRadius="5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/profileInfo"
+        cardView:cardBackgroundColor="@color/colorPrimary"
+        cardView:cardElevation="2dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/profileRank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rank"
+                android:layout_centerHorizontal="true"
+                android:textAppearance="@style/XS"
+                android:textSize="12sp"
+                />
+
+            <TextView
+                android:id="@+id/profileMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/month"
+                android:textAppearance="@style/XS"
+                android:textSize="9sp"
+                android:layout_below="@id/profileRank"/>
+
+            <TextView
+                android:id="@+id/profileRankMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/XS"
+                android:textSize="9sp"
+                android:layout_alignBottom="@id/profileMonth"
+                android:layout_alignParentEnd="true"
+                tools:text="9th"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorAccent"
+                android:layout_above="@id/profileSemester"/>
+
+            <TextView
+                android:id="@+id/profileSemester"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/XS"
+                android:textSize="9sp"
+                android:layout_below="@id/profileMonth"
+                android:text="@string/semester"
+                />
+
+            <TextView
+                android:id="@+id/profileRankSemester"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/XS"
+                android:textSize="9sp"
+                android:layout_alignBottom="@id/profileSemester"
+                android:layout_alignParentEnd="true"
+                tools:text="2nd"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorAccent"
+                android:layout_above="@id/profileAllTime"/>
+
+            <TextView
+                android:id="@+id/profileAllTime"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/XS"
+                android:textSize="9sp"
+                android:layout_below="@id/profileSemester"
+                android:text="@string/all_time"
+                />
+
+            <TextView
+                android:id="@+id/profileRankAllTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/XS"
+                android:textSize="9sp"
+                android:layout_alignBottom="@id/profileAllTime"
+                android:layout_alignParentEnd="true"
+                tools:text="1st"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
