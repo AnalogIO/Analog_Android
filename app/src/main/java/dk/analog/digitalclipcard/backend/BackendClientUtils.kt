@@ -34,9 +34,13 @@ private val errorHandlerInterceptor = Interceptor { chain ->
 
 private fun authInterceptor(token: String): Interceptor {
     return Interceptor { chain ->
-        val request = chain.request().newBuilder()
-                .header("Authorization", token)
-                .build()
+        val request = if (token.isNotEmpty()) {
+            chain.request().newBuilder()
+                    .header("Authorization", token)
+                    .build()
+        } else {
+            chain.request()
+        }
 
         chain.proceed(request)
     }
