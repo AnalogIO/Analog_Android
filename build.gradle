@@ -7,6 +7,7 @@ buildscript {
     ext.legacy_version = '1.0.0'
     ext.gridlayout_version = '1.0.0'
     ext.lifecycle_version = '2.0.0'
+    ext.material_version = '1.0.0'
 
     // Others
     ext.retrofit_version = '2.5.0'
