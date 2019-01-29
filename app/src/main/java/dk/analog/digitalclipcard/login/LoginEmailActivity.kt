@@ -64,7 +64,7 @@ class LoginEmailActivity : BaseActivity() {
         val popup = PopupMenu(this, v)
         popup.setOnMenuItemClickListener { item ->
             when (item.itemId) {
-                R.id.createUserMenuItem -> {
+                R.id.changeUserMenuItem -> {
                     startActivity(Intent(this, RegisterActivity::class.java))
                     true
                 }
