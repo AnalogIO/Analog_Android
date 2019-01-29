@@ -12,6 +12,10 @@ import kotlinx.android.synthetic.main.custom_toolbar.view.*
 class CustomToolbar @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0, defStyleRes: Int = 0) :
         RelativeLayout(context, attrs, defStyleAttr, defStyleRes) {
 
+    enum class BackButtonType {
+        MENU, BACK
+    }
+
     init {
         View.inflate(context, R.layout.custom_toolbar, this)
         context.theme.obtainStyledAttributes(
@@ -20,6 +24,7 @@ class CustomToolbar @JvmOverloads constructor(context: Context, attrs: Attribute
             try {
                 setToolbarTitle(getString(R.styleable.CustomToolbar_toolbarTitle))
                 setIcon(getResourceId(R.styleable.CustomToolbar_toolbarIcon, 0))
+                setBackButtonIcon(getInteger(R.styleable.CustomToolbar_toolbarBackIconType, 0))
             } finally {
                 recycle()
             }
@@ -32,5 +37,13 @@ class CustomToolbar @JvmOverloads constructor(context: Context, attrs: Attribute
 
     fun setIcon(@DrawableRes iconResId: Int) {
         toolbarIcon.setImageResource(iconResId)
+    }
+
+    private fun setBackButtonIcon(integer: Int) {
+        toolbarMenuIcon.setImageResource(when (integer) {
+            BackButtonType.MENU.ordinal -> R.drawable.ic_menu
+            BackButtonType.BACK.ordinal -> R.drawable.ic_arrow_back
+            else -> R.drawable.ic_menu
+        })
     }
 }
