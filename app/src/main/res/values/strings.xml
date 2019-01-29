@@ -26,6 +26,9 @@
     <string name="level">Level</string>
     <string name="profileAt">\@</string>
     <string name="tickets">Tickets</string>
+    <string name="register">Register</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="enter_your_email">Enter your email</string>
     <string name="brackets">[]</string>
     <string name="rank">Rank</string>
     <string name="month">Month</string>

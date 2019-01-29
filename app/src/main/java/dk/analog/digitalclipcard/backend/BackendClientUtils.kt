@@ -4,6 +4,7 @@ import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dk.analog.digitalclipcard.BuildConfig
+import dk.analog.digitalclipcard.R
 import dk.analog.digitalclipcard.base.BaseApplication
 import dk.analog.digitalclipcard.utils.getToken
 import dk.analog.digitalclipcard.utils.logOut
@@ -13,10 +14,9 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 import java.util.*
 import java.util.concurrent.TimeUnit
-
-private const val URL = "https://analogio.dk/beta/clippy/api/v1"
 
 internal var userToken: String? = null
 
@@ -34,9 +34,13 @@ private val errorHandlerInterceptor = Interceptor { chain ->
 
 private fun authInterceptor(token: String): Interceptor {
     return Interceptor { chain ->
-        val request = chain.request().newBuilder()
-                .header("Authorization", token)
-                .build()
+        val request = if (token.isNotEmpty()) {
+            chain.request().newBuilder()
+                    .header("Authorization", token)
+                    .build()
+        } else {
+            chain.request()
+        }
 
         chain.proceed(request)
     }
@@ -46,19 +50,20 @@ fun getBackendServiceInstance(context: Context): BackendService {
     val token = context.getToken()
     if (instance == null || token != userToken) {
         userToken = token
-        val retrofit = getDefaultRetrofitInstance(token, getGson())
-        instance = retrofit.create(BackendService::class.java)
+        val url = context.getString(R.string.baseUrl)
+        val retrofit = getDefaultRetrofitInstance(token, getGson(), url)
+        instance = retrofit.create<BackendService>()
     }
     return instance!!
 }
 
-private fun getDefaultRetrofitInstance(token: String, gson: Gson): Retrofit {
-    return getDefaultRetrofitBuilder(gson, getDefaultClient(token)).build()
+private fun getDefaultRetrofitInstance(token: String, gson: Gson, url: String): Retrofit {
+    return getDefaultRetrofitBuilder(gson, getDefaultClient(token), url).build()
 }
 
-private fun getDefaultRetrofitBuilder(gson: Gson, client: OkHttpClient): Retrofit.Builder {
+private fun getDefaultRetrofitBuilder(gson: Gson, client: OkHttpClient, url: String): Retrofit.Builder {
     return Retrofit.Builder()
-            .baseUrl(URL)
+            .baseUrl(url)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

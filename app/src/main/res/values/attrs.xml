@@ -3,5 +3,9 @@
     <declare-styleable name="CustomToolbar">
         <attr name="toolbarTitle" format="string" />
         <attr name="toolbarIcon" format="reference" />
+        <attr name="toolbarBackIconType" format="enum">
+            <enum name="menu" value="0" />
+            <enum name="back" value="1" />
+        </attr>
     </declare-styleable>
 </resources>
