@@ -15,7 +15,7 @@
         android:textAppearance="@style/XS"
         android:textColor="@color/colorAccent"
         android:text="@string/level"
-        android:textSize="12.5sp"
+        android:textSize="25sp"
         />
 
     <FrameLayout
@@ -25,8 +25,8 @@
         android:layout_below="@id/profileLevelHeader">
         <ProgressBar
             android:id="@+id/profileProgressBar"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
             android:layout_gravity="center"
             />
         <TextView
@@ -36,7 +36,7 @@
             android:textColor="@color/colorAccent"
             android:textAppearance="@style/XS"
             tools:text="5"
-            android:textSize="15sp"/>
+            android:textSize="30sp"/>
     </FrameLayout>
 
     <TextView
@@ -47,7 +47,7 @@
         android:textAppearance="@style/XS"
         android:gravity="center"
         tools:text="Agnete Ilsøe"
-        android:textSize="9sp"/>
+        android:textSize="18sp"/>
     <TextView
         android:id="@+id/profileId"
         android:layout_width="match_parent"
@@ -55,7 +55,7 @@
         android:layout_below="@id/profileName"
         android:textAppearance="@style/XS"
         android:gravity="center"
-        android:textSize="6sp"
+        android:textSize="12sp"
         tools:text="ID: 284" />
 
     <View
@@ -66,33 +66,38 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/profileInfo"
-        android:layout_width="158dp"
-        android:layout_height="51.5dp"
-        android:layout_marginTop="10dp"
-        cardView:cardCornerRadius="5dp"
+        android:layout_width="316dp"
+        android:layout_height="103dp"
+        android:layout_marginTop="19dp"
+        cardView:cardCornerRadius="10dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/profileId"
         cardView:cardBackgroundColor="@color/colorAccent"
-        cardView:cardElevation="2dp">
+        cardView:cardElevation="5dp">
 
         <RelativeLayout
+            android:id="@+id/profileMailProgramme"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="14dp"
             android:orientation="vertical">
             <TextView
                 android:id="@+id/profileAt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
                 android:text="@string/profileAt"
                 android:textAppearance="@style/XS"
-                android:textSize="12sp"/>
+                android:textSize="24sp"/>
             <TextView
                 android:id="@+id/profileEmail"
                 android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/XS"
-                android:textSize="7sp"
+                android:textSize="14sp"
                 android:layout_toEndOf="@id/profileAt"
                 tools:text="agil@itu.dk"
                 />
@@ -104,15 +109,17 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/XS"
                 android:layout_below="@id/profileAt"
-                android:text="@string/brackets"
+                android:textSize="24sp"
+                android:text= "@string/brackets"
                 />
 
             <TextView
+                android:id="@+id/profileProgramme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/XS"
-                android:textSize="7sp"
-                android:layout_toEndOf="@id/profileBrackets"
+                android:textSize="14sp"
+                android:layout_toEndOf="@id/profileAt"
                 android:layout_alignBottom="@id/profileBrackets"
                 tools:text="K-DDIT"
                 />
@@ -122,14 +129,15 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="158dp"
-        android:layout_height="78.5dp"
+        android:layout_width="316dp"
+        android:layout_height="182dp"
 
         cardView:cardCornerRadius="5dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/profileInfo"
         cardView:cardBackgroundColor="@color/colorPrimary"
-        cardView:cardElevation="2dp">
+        android:layout_marginTop="21dp"
+        cardView:cardElevation="5dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -143,7 +151,8 @@
                 android:text="@string/rank"
                 android:layout_centerHorizontal="true"
                 android:textAppearance="@style/XS"
-                android:textSize="12sp"
+                android:textSize="24sp"
+                android:layout_marginBottom="16dp"
                 />
 
             <TextView
@@ -152,7 +161,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/month"
                 android:textAppearance="@style/XS"
-                android:textSize="9sp"
+                android:textSize="18sp"
                 android:layout_below="@id/profileRank"/>
 
             <TextView
@@ -160,7 +169,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/XS"
-                android:textSize="9sp"
+                android:textSize="18sp"
                 android:layout_alignBottom="@id/profileMonth"
                 android:layout_alignParentEnd="true"
                 tools:text="9th"/>
@@ -177,7 +186,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/XS"
-                android:textSize="9sp"
+                android:textSize="18sp"
                 android:layout_below="@id/profileMonth"
                 android:text="@string/semester"
                 />
@@ -187,7 +196,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/XS"
-                android:textSize="9sp"
+                android:textSize="18sp"
                 android:layout_alignBottom="@id/profileSemester"
                 android:layout_alignParentEnd="true"
                 tools:text="2nd"/>
@@ -204,7 +213,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/XS"
-                android:textSize="9sp"
+                android:textSize="18sp"
                 android:layout_below="@id/profileSemester"
                 android:text="@string/all_time"
                 />
@@ -214,7 +223,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/XS"
-                android:textSize="9sp"
+                android:textSize="18sp"
                 android:layout_alignBottom="@id/profileAllTime"
                 android:layout_alignParentEnd="true"
                 tools:text="1st"/>
