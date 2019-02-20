@@ -51,6 +51,14 @@
             android:name=".tickets.TicketsActivity"
             android:screenOrientation="userPortrait" />
 
+        <activity
+            android:name=".purchase.PurchaseHistoryActivity"
+            android:screenOrientation="userPortrait" />
+
+        <activity
+            android:name=".profile.ProfileActivity"
+            android:screenOrientation="userPortrait" />
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="080f7d38b3a0056855ea9a1bcc90962c18ad8226" />
