@@ -1,14 +1,22 @@
 package dk.analog.digitalclipcard.backend
 
+import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+data class ErrorBody(val message: String)
+
 @Suppress("unused") // T is used in extending classes
 sealed class ApiResponse<T> {
     companion object {
+        private fun getErrorMessage(json: String?): String {
+            return if (json == null) "Unknown error"
+            else Gson().fromJson(json, ErrorBody::class.java).message
+        }
+
         fun <T> create(error: Throwable): ApiErrorResponse<T> {
-            return ApiErrorResponse(error.message ?: "unknown error")
+            return ApiErrorResponse(getErrorMessage(error.message))
         }
 
         fun <T> create(response: Response<T>): ApiResponse<T> {
@@ -26,7 +34,7 @@ sealed class ApiResponse<T> {
                 } else {
                     msg
                 }
-                ApiErrorResponse(errorMsg ?: "unknown error")
+                ApiErrorResponse(getErrorMessage(errorMsg))
             }
         }
     }

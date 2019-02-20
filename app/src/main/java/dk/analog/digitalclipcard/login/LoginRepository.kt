@@ -9,7 +9,7 @@ import okhttp3.ResponseBody
 
 data class Login(val email: String, val password: String, val version: String = BuildConfig.VERSION_NAME)
 data class LoginResponse(val token: String)
-data class RegisterInfo(val email: String, val name: String, val pin: String, val programmeId: Int)
+data class RegisterInfo(val email: String, val name: String, val password: String, val programmeId: Int)
 
 object LoginRepository {
 
