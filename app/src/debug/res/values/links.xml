@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="baseUrl">http://frederikjorgensen.dk/coffeecard/api/v1</string>
+    <string name="baseUrl">https://analogio.dk/beta/clippy/api/v1/</string>
 </resources>

@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.RelativeLayout
-import androidx.annotation.DrawableRes
 import dk.analog.digitalclipcard.R
 import kotlinx.android.synthetic.main.custom_toolbar.view.*
 
@@ -23,7 +22,6 @@ class CustomToolbar @JvmOverloads constructor(context: Context, attrs: Attribute
         ).apply {
             try {
                 setToolbarTitle(getString(R.styleable.CustomToolbar_toolbarTitle))
-                setIcon(getResourceId(R.styleable.CustomToolbar_toolbarIcon, 0))
                 setBackButtonIcon(getInteger(R.styleable.CustomToolbar_toolbarBackIconType, 0))
             } finally {
                 recycle()
@@ -33,10 +31,6 @@ class CustomToolbar @JvmOverloads constructor(context: Context, attrs: Attribute
 
     fun setToolbarTitle(title: String?) {
         toolbarTitle.text = title
-    }
-
-    fun setIcon(@DrawableRes iconResId: Int) {
-        toolbarIcon.setImageResource(iconResId)
     }
 
     private fun setBackButtonIcon(integer: Int) {
