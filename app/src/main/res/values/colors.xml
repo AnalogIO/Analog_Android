@@ -7,4 +7,6 @@
     <color name="colorTransparent">#0000</color>
     <color name="colorDisabled">#c4c4c4</color>
     <color name="colorTextError">#ffcc0000</color>
+    <color name="colorCortado">#775440</color>
+
 </resources>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/purchaseName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/XS"
+        tools:text="Filter Coffee"
+        android:textSize="18sp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/XS"
+        android:textSize="18sp"
+        android:layout_toEndOf="@id/purchaseName"
+        android:layout_alignParentEnd="true"
+        android:gravity="end"
+        tools:text="DKK 100,-"
+        />
+
+    <TextView
+        android:id="@+id/purchaseDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/XS"
+        android:textSize="14sp"
+        android:textColor="@color/colorCortado"
+        tools:text="Dec 18th, 2018"
+        android:layout_below="@id/purchaseName"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorAccent"
+        android:layout_below="@id/purchaseDate"
+        android:layout_marginTop="5dp"
+        />
+
+</RelativeLayout>
