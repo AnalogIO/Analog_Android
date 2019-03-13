@@ -15,10 +15,7 @@ import dk.analog.digitalclipcard.numericKeyboard.CustomKeyboardListener
 import dk.analog.digitalclipcard.numericKeyboard.NumericKeyboardFragment
 import dk.analog.digitalclipcard.register.RegisterActivity
 import dk.analog.digitalclipcard.tickets.TicketsActivity
-import dk.analog.digitalclipcard.utils.IntentUtils
-import dk.analog.digitalclipcard.utils.putStoredEmail
-import dk.analog.digitalclipcard.utils.putToken
-import dk.analog.digitalclipcard.utils.showToast
+import dk.analog.digitalclipcard.utils.*
 import kotlinx.android.synthetic.main.activity_login_main.*
 import kotlinx.android.synthetic.main.top_login_screen.*
 
@@ -141,7 +138,7 @@ class LoginMainActivity : BaseActivity(), CustomKeyboardListener {
             }
         }
         if (pin.length == PIN_LENGTH) {
-            loginViewModel?.login(email, pin)
+            loginViewModel?.login(email, StringUtils.sha256(pin))
         }
     }
 }
