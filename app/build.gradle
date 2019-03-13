@@ -9,8 +9,8 @@ android {
         applicationId "dk.analog.digitalclipcard"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 60
-        versionName "1.4.2"
+        versionCode 61
+        versionName "2.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
