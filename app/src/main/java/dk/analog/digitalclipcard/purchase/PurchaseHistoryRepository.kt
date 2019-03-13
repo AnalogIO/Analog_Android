@@ -11,8 +11,8 @@ data class PurchaseResponse(val id : Int, val productName : String, val productI
                     val orderId : String, val transactionId : String)
 
 object PurchaseRepository {
-    fun getPurchases(onResponse: (ApiResponse<PurchaseResponse>) -> Unit) {
-        getBackendServiceInstance(BaseApplication.context).getPurchasese().makeCall{onResponse(it)}
+    fun getPurchases(onResponse: (ApiResponse<List<PurchaseResponse>>) -> Unit) {
+        getBackendServiceInstance(BaseApplication.context).getPurchases().makeCall{onResponse(it)}
 
     }
 }

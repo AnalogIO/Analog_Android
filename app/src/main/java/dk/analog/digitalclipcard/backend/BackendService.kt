@@ -22,5 +22,5 @@ interface BackendService {
     fun getAccountDetails() : Call<AccountResponse>
 
     @GET("Purchases")
-    fun getPurchasese() : Call<PurchaseResponse>
+    fun getPurchases() : Call<List<PurchaseResponse>>
 }
