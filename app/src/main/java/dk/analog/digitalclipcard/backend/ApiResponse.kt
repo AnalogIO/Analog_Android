@@ -10,9 +10,12 @@ data class ErrorBody(val message: String)
 @Suppress("unused") // T is used in extending classes
 sealed class ApiResponse<T> {
     companion object {
-        private fun getErrorMessage(json: String?): String {
+        private fun getErrorMessage(json: String?): String? {
             return if (json == null) "Unknown error"
-            else Gson().fromJson(json, ErrorBody::class.java).message
+            else {
+                val errorBody = Gson().fromJson(json, ErrorBody::class.java) ?: null
+                errorBody?.message
+            }
         }
 
         fun <T> create(error: Throwable): ApiErrorResponse<T> {
@@ -47,7 +50,7 @@ class ApiEmptyResponse<T> : ApiResponse<T>()
 
 data class ApiSuccessResponse<T>(val body: T) : ApiResponse<T>()
 
-data class ApiErrorResponse<T>(val errorMessage: String) : ApiResponse<T>()
+data class ApiErrorResponse<T>(val errorMessage: String?) : ApiResponse<T>()
 
 fun <T> Call<T>.makeCall(onResponse: (ApiResponse<T>) -> Unit) {
     enqueue(object : Callback<T> {

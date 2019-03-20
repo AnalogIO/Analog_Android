@@ -35,9 +35,9 @@ class LoginMainActivity : BaseActivity(), CustomKeyboardListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val email = intent.getStringExtra(EMAIL_LOGIN)
+        val mail = intent?.getStringExtra(EMAIL_LOGIN)
+        this.email = mail ?: getStoredEmail()
         loginEmail.text = email
-        this.email = email
         insertNumericKeyboard()
         updatePasswordBoxes(pin)
         setupListeners()
