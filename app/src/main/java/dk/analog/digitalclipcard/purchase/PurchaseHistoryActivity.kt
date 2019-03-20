@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.purchase_receipt.view.*
 
 class PurchaseHistoryActivity : BaseActivity() {
     private var purchaseViewModel: PurchaseHistoryViewModel? = null
-    private val adapter = MyAdapter(this)
+    private val adapter = PurchaseAdapter(this)
     override fun getLayoutResourceId(): Int {
         return R.layout.activity_purchase_history
     }
@@ -37,7 +37,7 @@ class PurchaseHistoryActivity : BaseActivity() {
         purchaseViewModel.getPurchaseHistory {
             when (it) {
                 is ApiSuccessResponse -> {
-                    adapter.myDataset = it.body
+                    adapter.purchases = it.body
                 }
                 is ApiErrorResponse -> {
                     showToast(it.errorMessage)
@@ -47,9 +47,9 @@ class PurchaseHistoryActivity : BaseActivity() {
 
     }
 
-    class MyAdapter(val context: Context) :
-            RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
-        var myDataset: List<PurchaseResponse> = listOf()
+    class PurchaseAdapter(val context: Context) :
+            RecyclerView.Adapter<PurchaseHistoryActivity.PurchaseAdapter.MyViewHolder>() {
+        var purchases: List<PurchaseResponse> = listOf()
             set(value) {
                 field = value
                 notifyDataSetChanged()
@@ -66,17 +66,17 @@ class PurchaseHistoryActivity : BaseActivity() {
         }
 
         override fun onCreateViewHolder(parent: ViewGroup,
-                                        viewType: Int): MyAdapter.MyViewHolder {
+                                        viewType: Int): PurchaseHistoryActivity.PurchaseAdapter.MyViewHolder {
             val view = LayoutInflater.from(parent.context)
                     .inflate(R.layout.purchase_receipt, parent, false)
             return MyViewHolder(view)
         }
 
         override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-            holder.bind(myDataset[position])
+            holder.bind(purchases[position])
         }
 
-        override fun getItemCount() = myDataset.size
+        override fun getItemCount() = purchases.size
     }
 
 }

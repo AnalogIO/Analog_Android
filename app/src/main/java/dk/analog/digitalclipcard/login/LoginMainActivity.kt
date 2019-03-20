@@ -14,7 +14,7 @@ import dk.analog.digitalclipcard.base.BaseActivity
 import dk.analog.digitalclipcard.numericKeyboard.CustomKeyboardListener
 import dk.analog.digitalclipcard.numericKeyboard.NumericKeyboardFragment
 import dk.analog.digitalclipcard.register.RegisterActivity
-import dk.analog.digitalclipcard.tickets.TicketsActivity
+import dk.analog.digitalclipcard.ticketHistory.TicketHistoryActivity
 import dk.analog.digitalclipcard.utils.IntentUtils
 import dk.analog.digitalclipcard.utils.putStoredEmail
 import dk.analog.digitalclipcard.utils.putToken
@@ -66,7 +66,7 @@ class LoginMainActivity : BaseActivity(), CustomKeyboardListener {
     }
 
     private fun login() {
-        val intent = Intent(this, TicketsActivity::class.java)
+        val intent = Intent(this, TicketHistoryActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
     }

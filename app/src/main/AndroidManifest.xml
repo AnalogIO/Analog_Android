@@ -48,7 +48,7 @@
             android:screenOrientation="userPortrait" />
 
         <activity
-            android:name=".tickets.TicketsActivity"
+            android:name=".ticketHistory.TicketHistoryActivity"
             android:screenOrientation="userPortrait" />
 
         <activity
