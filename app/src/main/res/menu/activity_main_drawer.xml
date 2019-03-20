@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/group_tickets">
+        <item
+            android:id="@+id/nav_tickets"
+            android:background="?android:attr/selectableItemBackground"
+            android:title="Tickets" />
+    </group>
+    <group android:id="@+id/group_used_tickets">
+        <item
+            android:id="@+id/nav_used_tickets"
+            android:background="?android:attr/selectableItemBackground"
+            android:title="Used tickets" />
+    </group>
+    <group android:id="@+id/group_opening_hours">
+        <item
+            android:id="@+id/nav_opening_hours"
+            android:background="?android:attr/selectableItemBackground"
+            android:title="Opening hours" />
+    </group>
+    <group android:id="@+id/group_purchases">
+        <item
+            android:id="@+id/nav_purchases"
+            android:background="?android:attr/selectableItemBackground"
+            android:title="Purchases" />
+    </group>
+    <group android:id="@+id/group_voucher">
+        <item
+            android:id="@+id/nav_voucher"
+            android:background="?android:attr/selectableItemBackground"
+            android:title="Redeem voucher" />
+    </group>
+    <group android:id="@+id/group_leaderboards">
+        <item
+            android:id="@+id/nav_leaderboards"
+            android:background="?android:attr/selectableItemBackground"
+            android:title="LeaderBoards" />
+    </group>
+</menu>

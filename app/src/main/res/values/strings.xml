@@ -34,5 +34,7 @@
     <string name="month">Month</string>
     <string name="semester">Semester</string>
     <string name="all_time">All Time</string>
+    <string name="drawerOpen">Open navigation drawer</string>
+    <string name="drawerClose">Close navigation drawer</string>
     <string name="DKK">DKK %d,-</string>
 </resources>

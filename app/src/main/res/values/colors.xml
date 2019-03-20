@@ -9,4 +9,12 @@
     <color name="colorTextError">#ffcc0000</color>
     <color name="colorCortado">#775440</color>
 
+    <color name="grey">#e9e9e9</color>
+    <color name="cortado">#775440</color>
+    <color name="cappuccino">#8c674c</color>
+    <color name="green">#738d4b</color>
+    <color name="espresso">#38251a</color>
+    <color name="white">#ffffff</color>
+    <color name="yellow">#fed521</color>
+
 </resources>

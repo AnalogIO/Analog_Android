@@ -11,10 +11,10 @@ import dk.analog.digitalclipcard.R
 import dk.analog.digitalclipcard.backend.ApiErrorResponse
 import dk.analog.digitalclipcard.backend.ApiSuccessResponse
 import dk.analog.digitalclipcard.base.BaseActivity
+import dk.analog.digitalclipcard.base.MainActivity
 import dk.analog.digitalclipcard.numericKeyboard.CustomKeyboardListener
 import dk.analog.digitalclipcard.numericKeyboard.NumericKeyboardFragment
 import dk.analog.digitalclipcard.register.RegisterActivity
-import dk.analog.digitalclipcard.ticketHistory.TicketHistoryActivity
 import dk.analog.digitalclipcard.utils.*
 import kotlinx.android.synthetic.main.activity_login_main.*
 import kotlinx.android.synthetic.main.top_login_screen.*
@@ -63,7 +63,7 @@ class LoginMainActivity : BaseActivity(), CustomKeyboardListener {
     }
 
     private fun login() {
-        val intent = Intent(this, TicketHistoryActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
     }
