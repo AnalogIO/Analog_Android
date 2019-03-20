@@ -18,6 +18,6 @@ object LoginRepository {
     }
 
     fun register(email: String, name: String, pin: String, onResponse: (ApiResponse<ResponseBody>) -> Unit) {
-        getBackendServiceInstance(BaseApplication.context).registerUser(RegisterInfo(email, name, pin, 0)).makeCall { onResponse(it) }
+        getBackendServiceInstance(BaseApplication.context).registerUser(RegisterInfo(email, name, pin, 1)).makeCall { onResponse(it) }
     }
 }
