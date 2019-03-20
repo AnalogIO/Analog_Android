@@ -35,7 +35,7 @@ private fun authInterceptor(token: String): Interceptor {
     return Interceptor { chain ->
         val request = if (token.isNotEmpty()) {
             chain.request().newBuilder()
-                    .header("Authorization", token)
+                    .header("Authorization", "Bearer ${token}")
                     .build()
         } else {
             chain.request()
