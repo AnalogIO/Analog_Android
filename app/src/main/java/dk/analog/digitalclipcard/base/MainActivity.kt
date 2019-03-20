@@ -19,14 +19,15 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
 
         // Initial fragment
-        setFragment(TicketsFragment())
+        setFragment(TicketsFragment::class.java)
 
         setupToolbar()
     }
 
-    private fun setFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-                .replace(R.id.contentFrame, fragment)
+    private fun setFragment(fragment: Class<out Fragment>) {
+        supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.contentFrame, fragment.newInstance())
                 .commit()
     }
 
@@ -43,7 +44,8 @@ class MainActivity : BaseActivity() {
             drawerLayout.closeDrawers()
 
             when (menuItem.itemId) {
-                R.id.nav_used_tickets -> setFragment(TicketHistoryFragment())
+                R.id.nav_tickets -> setFragment(TicketsFragment::class.java)
+                R.id.nav_used_tickets -> setFragment(TicketHistoryFragment::class.java)
             }
             // Add code here to update the UI based on the item selected
             // For example, swap UI fragments here
@@ -57,6 +59,7 @@ class MainActivity : BaseActivity() {
 
             override fun onDrawerOpened(drawerView: View) {
                 super.onDrawerOpened(drawerView)
+
             }
         }
         drawerLayout.addDrawerListener(drawerToggle)
@@ -67,6 +70,10 @@ class MainActivity : BaseActivity() {
         return when (item.itemId) {
             android.R.id.home -> {
                 drawerLayout.openDrawer(GravityCompat.START)
+                true
+            }
+            R.id.menuItemTicketHistory -> {
+                setFragment(TicketHistoryFragment::class.java)
                 true
             }
             else -> super.onOptionsItemSelected(item)

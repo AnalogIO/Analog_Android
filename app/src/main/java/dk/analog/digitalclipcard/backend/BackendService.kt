@@ -28,4 +28,7 @@ interface BackendService {
 
     @GET("Tickets")
     fun getTickets(@Query("used") isUsed: Boolean): Call<List<TicketResponse>>
+
+    @GET("Products")
+    fun getProducts(): Call<List<TicketResponse>>
 }
