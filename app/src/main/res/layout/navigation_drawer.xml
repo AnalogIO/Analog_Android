@@ -10,7 +10,7 @@
     android:fitsSystemWindows="true"
     app:itemTextColor="@color/white"
     app:itemTextAppearance="@style/NavigationViewText"
-    app:menu="@menu/activity_main_drawer">
+    app:menu="@menu/activity_main_drawer_menu">
 
     <!--
     app:headerLayout="@layout/nav_header_home"

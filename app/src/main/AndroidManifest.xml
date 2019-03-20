@@ -52,10 +52,6 @@
             android:screenOrientation="userPortrait" />
 
         <activity
-            android:name=".ticketHistory.TicketHistoryActivity"
-            android:screenOrientation="userPortrait" />
-
-        <activity
             android:name=".purchase.PurchaseHistoryActivity"
             android:screenOrientation="userPortrait" />
 
